@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, List, ListItem, MyBtn } from './styled';
 
-function PhoneList({ contacts, deleteUser }) {
+function PhoneList({ contacts, onDelete }) {
   return (
     <Container>
       {contacts.length === 0 ? (
@@ -14,7 +14,7 @@ function PhoneList({ contacts, deleteUser }) {
               <p>
                 {item.name}: {item.phone}
               </p>
-              <MyBtn type="button" onClick={() => deleteUser(item.id)}>
+              <MyBtn type="button" onClick={() => onDelete(item.id)}>
                 x
               </MyBtn>
             </ListItem>
@@ -33,7 +33,7 @@ PhoneList.propTypes = {
       phone: PropTypes.string.isRequired,
     })
   ),
-  deleteUser: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default PhoneList;

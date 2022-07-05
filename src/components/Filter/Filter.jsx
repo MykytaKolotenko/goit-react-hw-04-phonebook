@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { Container, MyInput, MyP } from './styled';
 
-function Filter({ filter, value }) {
+function Filter({ onFilter, value }) {
   return (
     <Container>
       <MyP>Find contacts by name</MyP>
       <MyInput
         type="text"
-        onChange={filter}
+        onChange={onFilter}
         placeholder="Search..."
         value={value}
       />
@@ -16,7 +16,7 @@ function Filter({ filter, value }) {
 }
 
 Filter.propTypes = {
-  filter: PropTypes.func.isRequired,
+  onFilter: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
